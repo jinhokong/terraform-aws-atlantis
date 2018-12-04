@@ -83,11 +83,11 @@ variable "atlantis_version" {
   default     = "latest"
 }
 
-variable "atlantis_github_user" {
+variable "atlantis_gitlab_user" {
   description = "GitHub username of the user that is running the Atlantis command"
 }
 
-variable "atlantis_github_user_token" {
+variable "atlantis_gitlab_user_token" {
   description = "GitHub token of the user that is running the Atlantis command"
 }
 
@@ -96,23 +96,23 @@ variable "atlantis_repo_whitelist" {
   type        = "list"
 }
 
-variable "create_github_repository_webhook" {
-  description = "Whether to create Github repository webhook for Atlantis. This requires valid Github credentials specified as `github_token` and `github_organization`."
+variable "create_gitlab_repository_webhook" {
+  description = "Whether to create Gitlab repository webhook for Atlantis. This requires valid Gitlab credentials specified as `gitlab_token` and `gitlab_organization`."
   default     = true
 }
 
-variable "github_token" {
-  description = "Github token"
+variable "gitlab_token" {
+  description = "Gitlab token"
   default     = ""
 }
 
-variable "github_organization" {
-  description = "Github organization"
+variable "gitlab_organization" {
+  description = "Gitlab organization"
   default     = ""
 }
 
-variable "github_repo_names" {
-  description = "Github repositories where webhook should be created"
+variable "gitlab_repo_names" {
+  description = "Gitlab repositories where webhook should be created"
   type        = "list"
   default     = []
 }

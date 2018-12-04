@@ -21,17 +21,17 @@ resource "random_id" "webhook" {
 }
 
 ###################
-# Github webhook(s)
+# Gitlab webhook(s)
 ###################
-module "github_repository_webhook" {
-  source = "./modules/github-repository-webhook"
+module "gitlab_repository_webhook" {
+  source = "./modules/gitlab-repository-webhook"
 
-  create_github_repository_webhook = "${var.create_github_repository_webhook}"
+  create_gitlab_repository_webhook = "${var.create_gitlab_repository_webhook}"
 
-  github_token        = "${var.github_token}"
-  github_organization = "${var.github_organization}"
+  gitlab_token        = "${var.gitlab_token}"
+  gitlab_organization = "${var.gitlab_organization}"
 
-  github_repo_names = "${var.github_repo_names}"
+  gitlab_repo_names = "${var.gitlab_repo_names}"
 
   webhook_url    = "${local.atlantis_url_events}"
   webhook_secret = "${random_id.webhook.hex}"
@@ -252,11 +252,11 @@ resource "aws_ecs_task_definition" "atlantis" {
             },
             {
                 "name": "ATLANTIS_GH_USER",
-                "value": "${var.atlantis_github_user}"
+                "value": "${var.atlantis_gitlab_user}"
             },
             {
                 "name": "ATLANTIS_GH_TOKEN",
-                "value": "${var.atlantis_github_user_token}"
+                "value": "${var.atlantis_gitlab_user_token}"
             },
             {
                 "name": "ATLANTIS_GH_WEBHOOK_SECRET",

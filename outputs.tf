@@ -3,14 +3,14 @@ output "atlantis_url" {
   value       = "${local.atlantis_url}"
 }
 
-output "github_webhook_secret" {
-  description = "Github webhook secret"
-  value       = "${module.github_repository_webhook.this_repository_webhook_secret}"
+output "gitlab_webhook_secret" {
+  description = "Gitlab webhook secret"
+  value       = "${module.gitlab_repository_webhook.this_repository_webhook_secret}"
 }
 
-output "github_webhook_urls" {
-  description = "Github webhook URL"
-  value       = "${module.github_repository_webhook.this_repository_webhook_urls}"
+output "gitlab_webhook_urls" {
+  description = "Gitlab webhook URL"
+  value       = "${module.gitlab_repository_webhook.this_repository_webhook_urls}"
 }
 
 output "task_role_arn" {
